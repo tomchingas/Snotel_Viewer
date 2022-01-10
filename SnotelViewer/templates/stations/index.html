@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Nearby Snotel Stations</title>
+    </head>
+<body>
+    <h1>Nearby Snotel Stations</h1>
+    {% if stations %}
+    <ul>
+    {% for station in stations %}
+        <li>
+        {{ station.station_name}}: {{station.distance}}
+        </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
