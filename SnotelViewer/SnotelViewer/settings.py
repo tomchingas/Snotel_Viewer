@@ -59,7 +59,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
-    'stations'
+    'corsheaders',      # API
+    'rest_framework',   # API
+    'stations',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +72,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',    # API
 ]
 
 ROOT_URLCONF = 'SnotelViewer.urls'
@@ -150,3 +153,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# API
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000'
+]

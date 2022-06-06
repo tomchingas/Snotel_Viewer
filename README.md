@@ -39,6 +39,7 @@ The app is currently only setup to run locally. A '.env' file is used to store i
 
 ### Ensure the docker container is running:
 $ sudo docker ps -a
+
 $ sudo docker start -i <name/id>
 
 ### Create a virtual python environment, activate the virtual environment, and install required python libraries

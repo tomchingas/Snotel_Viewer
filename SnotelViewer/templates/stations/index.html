@@ -11,6 +11,7 @@
     {% for station in stations %}
         <li>
         {{ station.station_name}}: {{station.distance}}
+        <a href= "https://wcc.sc.egov.usda.gov/reportGenerator/view/customMultiTimeSeriesGroupByStationReport/hourly/start_of_period/{{ station.triple_id }}%7Cid=%22%22%7Cname/-23,0/WTEQ::value?fitToScreen=false" <button> Link </button></a> <!-- Button link -->
         </li>
     {% endfor %}
     </ul>

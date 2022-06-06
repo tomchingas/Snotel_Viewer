@@ -4,6 +4,10 @@ from django.contrib.gis.geos import fromstr
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
 from .models import Station
+from django.http import HttpResponse
+from rest_framework import viewsets
+from .serializers import StationSerializer
+from .models import Station
 
 # View to get the 6 nearest snotel station locations
 
@@ -14,6 +18,7 @@ latitude = 43.603600
 
 user_location = Point(longitude, latitude, srid=4326)
 
+
 # Add view class for nearby Snotel stations
 class Home(generic.ListView):
     model = Station
@@ -22,4 +27,10 @@ class Home(generic.ListView):
     user_location)
     ).order_by('distance')[0:6]
     template_name = 'stations/index.html'
+
+
+# API
+class StationView(viewsets.ModelViewSet):
+    serializer_class = StationSerializer
+    queryset = Station.objects.all()
 
